@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数字时钟</title>
+	<script type="text/javascript">
+	function getDouble(n){
+		if(n>10)
+			return ''+n;
+		else if(n<10)
+			return '0'+n;
+		else
+			return ''+n;	
+	}
+		window.onload = function(){
+			function tick(){
+			var aDiv = document.getElementsByTagName('img');
+			var oDate = new Date();
+			var str = getDouble(oDate.getHours())+getDouble(oDate.getMinutes())+getDouble(oDate.getSeconds());
+			/*var str2 = '111111';*/
+
+			for(var i = 0;i<aDiv.length;i++){
+				//alert(str);
+				aDiv[i].src = 'img/clock/'+str[i]+'.png';
+			}
+			};
+			setInterval(tick,1000);
+			tick();
+			
+		}
+	</script>
+</head>
+<body>
+<div style="background: black;font-size: 50px;color: white;">
+	<img src="img/clock/0.png">
+	<img src="img/clock/0.png">
+	:
+	<img src="img/clock/0.png">
+	<img src="img/clock/0.png">
+	:
+	<img src="img/clock/0.png">
+	<img src="img/clock/0.png">
+</div>
+</body>
+</html>
