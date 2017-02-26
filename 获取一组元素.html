@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>getElementsByTagName</title>
+		<style type="text/css">
+			
+			div{
+				width: 80px;height: 80px;float: left;
+				background: pink;
+				border: 1px solid red;
+				margin: 2px;	
+			}
+		</style>
+		<script>
+		window.onload = function(){
+			var oDiv = document.getElementsByTagName('div');
+			//alert(oDiv.length);这里显示tag元素的个数
+			//oDiv.style.background = 'red';错误的修改方式。
+			//js只能对一个元素进行修改，而oDiv包含的是一组元素。
+			oDiv[1].style.background = 'red';//可行
+		};
+		</script>
+
+	</head>
+	<body>
+		<div></div>	
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

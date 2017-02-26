@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动</title>
+	<style type="text/css">
+	*{
+		margin: 0;padding: 0;
+	}
+		#div1{
+			width: 712px;
+			height: 108px;
+			margin: 100px;
+			position: relative;
+			background: red;
+			overflow: hidden;
+		}
+		#div1 ul li{
+			float: left;
+			list-style: none;
+			width: 178px;
+			height: 108px;
+			list-style: none;
+		}
+		#div1 ul{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var oUl = document.getElementsByTagName('ul')[0];
+			var aLi = oUl.getElementsByTagName('li');
+			var timer = null;
+
+			oUl.innerHTML = oUl.innerHTML + oUl.innerHTML;
+			oUl.style.width = aLi[0].offsetWidth*aLi.length+'px';/*把掉下面的接到右边显示*/
+
+			timer = setInterval(function(){
+				if(oUl.offsetLeft<-oUl.offsetWidth/2){
+					oUl.style.left = '0';
+				}
+				oUl.style.left = oUl.offsetLeft-2+'px';
+			},30);
+			oDiv.onmouseover = function(){
+				clearInterval(timer);
+			};
+		}
+	</script>
+</head>
+
+<body>
+<div id="div1">
+	<ul>
+		<li><img src="img/rock/1.jpg"></li>
+		<li><img src="img/rock/2.jpg"></li>
+		<li><img src="img/rock/3.jpg"></li>
+		<li><img src="img/rock/4.jpg"></li>
+	</ul>
+</div>
+
+	
+</body>
+</html>

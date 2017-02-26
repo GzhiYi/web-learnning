@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div3{
+				width: 20px;
+				height: 100px;
+				background: #ccc;
+				display: none;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			function showhide(){
+				var aa = document.getElementById("div3");
+				if(aa.style.display=="none")
+					aa.style.display="block";
+				else
+					aa.style.display="none";
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="显示隐藏" onclick="showhide()"/>
+		<div id="div3">
+			
+		</div>
+	</body>
+</html>

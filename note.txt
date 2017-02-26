@@ -1,0 +1,75 @@
+1.网页换肤可以通过设置几套css样式外联，通过函数将link标记id然后进行更改
+2.任何标签都可以加id，任何标签的任何属性都可以修改，如href，link
+3.httml怎么写，JavaScript就怎么写，注意例外
+	.box{
+	}
+	function toRed(){
+		var oDiv = document.getElementById('div2');
+		oDiv.class = 'box';//错误，应该是oDiv.className = 'box';class为关键字或者称为保留字
+	}
+4.样式优先级  ：*《标签《class《ID《行间
+5.style和className
+	元素.style.属性 = _____是修改行间样式{有最高优先级}
+	在这之后修改了className将不会有效果。。别混合用
+6.函数名字不好取，可以尝试：比如：
+	var obtn = document.getElememtById("IdName");
+	function aaa(){//作为单击按钮的事件
+		do something;
+	}
+	obtn.onclick = aaa;可以变成如下：
+	obtn.onclick = function(){}//此时函数名字可以不需要，也就是不用写。
+	提取事件的时候，注意函数的位置，还有window.onload的作用。
+7.行为样式还有结构分别为：js事件、css、html
+8.留意，反选操作失败。原因是静态网页读取不了勾选的checkBox。
+9.更改样式记得是xx.style.[属性].通常忘记还有style的存在
+10.强制类型转换：parseInt()----转为整型，会去掉小数点后面的数。parseFloat()----转为浮点型。建议都用parseFloat
+	NaN，意思为非数字。注意NaN！=NaN，以及isNaN()可以检验是否为非数字。
+	var a = 5;var b = '5';alert(a == b);//为true 先转换类型，再进行比较
+	alert(a === b);//为false  不转换类型，直接比较（隐式类型转换）；a、b分别为字符串'12' '4'，a-b相减为7
+	这样也是隐式转换。
+11.闭包：子函数可以使用父函数的局部变量。
+12.js第二定律：凡是最新的东西，都不兼容
+13.获取非行间样式。考虑兼容问题。obj.currentStyle[name]，是ie下的兼容，getComputedStyle(obj,false)[name]为chrome和火狐下的兼容
+	解决99%兼容问题就是通过if else处理。例如：注意：没法取复合样式
+	if(obj.curretStyle){
+		rerurn obj.currentStyle[name];
+	}
+	else{
+		rerurn getComputerStyle(obj,false)[name];
+	}
+
+14.图片问题。要想在一个div中让一张图片拉伸满，可以如下。
+	<div>
+		<img src="add" width="100%" height="100%">//把图像铺满在上层div中
+	<div>
+	
+15.arguments用法，存了所有数组参数，arguments.length为数组长度。arguments[1]为第二个数组元素
+	splice:定义a数组。a.splice(2,3);//从第二个开始删除三个数组值。
+	a.splice(2,0,'q','w');//从第二个开始，删除0和数组值，并从删除的位置插入q,w
+	因此splice是数组的万能操作。还有concat链接两个数组和join.
+16.计时器之数字时钟的应用。
+思路：生成6个img，分别为时分秒。创建日期对象获取时分秒的数值。
+	函数有：getHours()、getMinutes()、getSeconds();
+	处理诸如1：00这样的时间问题。需要的是01而不是1；
+	函数 toDou(n){
+		if(n>10){
+			return n;
+		}
+		else if(n<10){
+			return '0'+n;
+		}
+		else{
+		return n;
+		}
+	}
+	进行 str =  toDou(obj.getHours())+...;
+	计时器：setInterval(function,time);
+	怎么改变图片路径：
+	for(var i = 0;i<obj.length;i++){
+		obj2.src = 'img/clock/'+str[i]+'.png';
+	}
+	!还没完，在处理图片路径的地方还必须考虑兼容性问题。
+	因为str[i]在低版本的浏览器上是不兼容的。
+	因此需要进行如下操作：
+	str[i]----->str.charAt(i);
+	17.获取左边距offsetLeft

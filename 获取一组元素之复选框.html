@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload=function() {
+				var oDiv = document.getElementById('div1');
+				var oBox = oDiv.getElementsByTagName('input');
+				var oBtn1 = document.getElementById('btn1');
+				var oBtn2 = document.getElementById('btn2');
+				oBtn1.onclick = function(){
+					for(var i=0;i<oBox.length;i++)
+					{
+						oBox[i].checked = true;
+						
+					}
+				};
+				oBtn2.onclick = function(){
+					for(i=0;i<oBox.length;i++)
+					{
+						if(oBox[i].checked==true)
+							oBox[i].checked = false;
+						else
+							oBox[i].checked=true;
+					}
+				}
+			};
+
+		</script>
+	</head>
+	<body>
+		<input id="btn1" type="button" value="全选" />
+		<input id="btn2" type="button" value="反选"/><br />
+		<div id="div1">
+			<input type="checkbox"  /><br>
+			<input type="checkbox" /><br>
+			<input type="checkbox" /><br>
+			<input type="checkbox" /><br>
+			<input type="checkbox" /><br>
+			<input type="checkbox" /><br>
+			<input type="checkbox" /><br>
+			<input type="checkbox" /><br>
+			<input type="checkbox" /><br>
+		</div>
+	</body>
+</html>

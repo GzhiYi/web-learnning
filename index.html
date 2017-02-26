@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>改变链接</title>
+		<script>
+			function changesrc(){
+				document.getElementById("change").href="www.google.cn";
+				document.getElementById("change").target="_blank"
+				
+			}
+		</script>
+	</head>
+	<body>
+		<a href="www.baidu.com" id="change">链接</a>
+		<input type="button" value="改变链接到谷歌" onclick="changesrc()"/>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			#div1 .active{
+				background: yellow;
+			}
+			#div1 div{/*这里表示div1下的div的样式*/
+				width: 142px;height: 200px;background: #ccc;
+				border: 1px solid red;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oDiv = document.getElementById('div1');
+				var oBtn = oDiv.getElementsByTagName('input');
+				var aDiv = oDiv.getElementsByTagName('div');
+				
+				for(var i = 0;i<oBtn.length;i++){
+					oBtn[i].index = i;//这里可以侦测到鼠标悬浮在哪个按钮上
+					oBtn[i].onmouseover = function(){
+						for(var i = 0;i<oBtn.length;i++){
+							oBtn[i].className = '';
+							aDiv[i].style.display =	'none';
+						}
+						
+						this.className = 'active';
+						aDiv[this.index].style.display = 'block';
+					}
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<input class="active" type="button" value="①"/>
+			<input type="button" value="②"/>
+			<input type="button" value="③"/>
+			<input type="button" value="④"/>
+			<div style="display: block;">111</div>
+			<div>222</div>
+			<div>333</div>
+			<div>444</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!--<!DOCTYPE html>
+复习了获取一组元素中的复选框
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+			window.onload = function(){
+				var oBtn = document.getElementById("btn1");
+				var oDiv = document.getElementById('div1');
+				var oBtn2 = document.getElementById("btn2");
+				var oBox = oDiv.getElementsByTagName('input');
+				oBtn.onclick = function (){
+					for(var i = 0;i<oBox.length;i++){
+						oBox[i].checked = true;
+					}
+				}
+				oBtn2.onclick = function (){
+					for(i= 0;i<oBox.length;i++){
+						if((oBox[i].checked == true)){
+							oBox[i].checked = false;
+						}
+						else
+							oBox[i].checked = true;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input id="btn1" type="button" value="全选" />
+		<input id="btn2" type="button" value="反选" />
+		<div id="div1">
+			<input type="checkbox" /><br />
+			<input type="checkbox" /><br />
+			<input type="checkbox" /><br />
+			<input type="checkbox" /><br />
+			<input type="checkbox" /><br />
+			<input type="checkbox" /><br />
+			<input type="checkbox" /><br />
+			<input type="checkbox" />
+		</div>
+
+	</body>
+</html>
+-->

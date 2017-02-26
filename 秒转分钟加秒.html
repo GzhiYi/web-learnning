@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>秒转分钟加秒</title>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oDiv = document.getElementById('time');
+		var aBtn = oDiv.getElementsByTagName('input');
+
+		aBtn[1].onclick = function(){
+			alert("结果为："+parseInt(aBtn[0].value/60)+"分"+(aBtn[0].value-(parseInt(aBtn[0].value/60)*60))+"秒");
+		}
+	}
+		
+	</script>
+</head>
+<body>
+<div id="time">
+	<input type="text" placeholder="输入秒数">
+	<input type="button" value="转换">
+
+</div>
+</body>
+</html>

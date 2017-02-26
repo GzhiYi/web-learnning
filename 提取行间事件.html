@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="btn1" type="button" value="按钮" />
+		<script type="text/javascript">
+			var oBtn1 = document.getElementById("btn1");
+			oBtn1.value = 'aaa';
+			function abc(){
+				alert('提取事件成功！')
+			}
+			oBtn1.onclick = abc;
+			
+		</script>
+	</body>
+</html>
